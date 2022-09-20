@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
-import ScrollArea from "~/components/common/ScrollArea";
+import NavigationMenuDemo from "~/components/common/Header";
+import ScrollArea, { Box } from "~/components/common/ScrollArea";
 import { globalStyles } from "~/styles/stitches.config";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -7,7 +8,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ScrollArea>
-      <Component {...pageProps} />
+      <NavigationMenuDemo />
+      <Box css={{ py: 15, px: 48 }}>
+        <Component {...pageProps} />
+      </Box>
     </ScrollArea>
   );
 }

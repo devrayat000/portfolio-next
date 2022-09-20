@@ -62,12 +62,12 @@ export const ScrollAreaScrollbar = StyledScrollbar;
 export const ScrollAreaThumb = StyledThumb;
 export const ScrollAreaCorner = StyledCorner;
 
-const Box = styled("div", {});
+export const Box = styled("div", {});
 
 const ScrollArea: React.FC<React.PropsWithChildren> = ({ children }) => (
   <ScrollAreaRoot>
     <ScrollAreaViewport css={{ backgroundColor: "white" }}>
-      <Box style={{ padding: "15px 20px" }}>{children}</Box>
+      {children}
     </ScrollAreaViewport>
     <ScrollAreaScrollbar orientation="vertical">
       <ScrollAreaThumb />
