@@ -7,10 +7,10 @@ export const theme: MantineThemeOverride = {
     fontFamily: "'Poppins', sans-serif",
     fontWeight: 700,
     sizes: {
-      h1: { fontSize: 72 },
-      h2: { fontSize: 60 },
-      h3: { fontSize: 52 },
-      h4: { fontSize: 44 },
+      h1: { fontSize: "4.5em" },
+      h2: { fontSize: "4em" },
+      h3: { fontSize: "3.25" },
+      h4: { fontSize: "2.75em" },
       h5: {
         fontSize: 32,
         fontWeight: 600,

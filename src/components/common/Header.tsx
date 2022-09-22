@@ -19,6 +19,23 @@ const useStyles = createStyles((theme) => ({
   container: {
     padding: `${theme.spacing.md}px ${theme.spacing.xl * 2.5}px`,
     height: "100%",
+    [theme.fn.smallerThan("md")]: {
+      paddingLeft: theme.spacing.xl * 1.5,
+      paddingRight: theme.spacing.xl * 1.5,
+    },
+    [theme.fn.smallerThan("sm")]: {
+      paddingLeft: theme.spacing.xl,
+      paddingRight: theme.spacing.xl,
+    },
+    [theme.fn.smallerThan("xs")]: {
+      paddingLeft: theme.spacing.md,
+      paddingRight: theme.spacing.md,
+    },
+  },
+  links: {
+    [theme.fn.smallerThan("sm")]: {
+      display: "none",
+    },
   },
   link: {
     display: "block",
@@ -77,7 +94,7 @@ const MyHeader = () => {
       <Group position="apart" align="center" className={classes.container}>
         <Logo />
 
-        <Group id="links" spacing="md">
+        <Group id="links" spacing="md" className={classes.links}>
           <Anchor
             variant="text"
             component={NextLink}
@@ -112,7 +129,7 @@ const MyHeader = () => {
           </Anchor>
         </Group>
 
-        <Group id="contact" spacing="xl">
+        <Group id="contact" spacing="xl" className={classes.links}>
           <Button variant="outline" className={classes.contact}>
             Contact me
           </Button>

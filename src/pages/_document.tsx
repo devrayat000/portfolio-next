@@ -16,10 +16,10 @@ const MyDocument = () => {
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Poppins:wght@400;600;700&display=swap"
           rel="stylesheet"
         />
-        <style
+        {/* <style
           id="stitches"
           dangerouslySetInnerHTML={{ __html: getCssText() }}
-        />
+        /> */}
       </Head>
       <body>
         <Main />

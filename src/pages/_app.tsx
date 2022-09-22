@@ -1,4 +1,4 @@
-import { MantineProvider, ScrollArea } from "@mantine/core";
+import { Global, MantineProvider, ScrollArea } from "@mantine/core";
 import { AnimatePresence } from "framer-motion";
 import type { AppProps } from "next/app";
 import Shell from "~/components/common/Shell";
@@ -15,6 +15,18 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       withCSSVariables
       theme={theme}
     >
+      <Global
+        styles={(theme) => ({
+          body: {
+            [theme.fn.smallerThan("sm")]: {
+              fontSize: 9,
+            },
+            [theme.fn.smallerThan("xs")]: {
+              fontSize: 7,
+            },
+          },
+        })}
+      />
       <ScrollArea style={{ height: "100vh" }}>
         <Shell>
           <AnimatePresence mode="wait">
