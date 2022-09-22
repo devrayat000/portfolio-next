@@ -1,95 +1,132 @@
-import React from "react";
-import { styled } from "@stitches/local";
-import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-import { violet } from "@radix-ui/colors";
+import {
+  Anchor,
+  Avatar,
+  Button,
+  createStyles,
+  Group,
+  Header,
+} from "@mantine/core";
+import { NextLink } from "@mantine/next";
+// import Image from "next/future/image";
+
 import Logo from "./Logo";
-import Link from "next/link";
+import avatar from "~/assets/images/avatar.png";
 
-const NavigationMenu = styled(NavigationMenuPrimitive.Root, {
-  position: "relative",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  zIndex: "$nav",
-  px: 48,
-  py: 16,
-  height: 84,
-});
-
-const NavigationMenuList = styled(NavigationMenuPrimitive.List, {
-  all: "unset",
-  display: "flex",
-  justifyContent: "center",
-  padding: 4,
-  borderRadius: 6,
-  listStyle: "none",
-  gap: "1.5rem",
-});
-
-const NavigationMenuLink = styled(NavigationMenuPrimitive.Link, {
-  display: "block",
-  textDecoration: "none",
-  fontSize: "$link",
-  letterSpacing: "$wide",
-  color: "$textPrimary",
-  lineHeight: 1,
-  padding: "8px 12px",
-  outline: "none",
-  userSelect: "none",
-  fontWeight: 500,
-  borderRadius: 4,
-  transition: "background-color 150ms ease-in-out",
-  "&:focus": { position: "relative", boxShadow: `0 0 0 2px ${violet.violet7}` },
-  "&:hover": { backgroundColor: violet.violet3 },
-});
-
-const ContactUsLink = styled(NavigationMenuLink, {
-  border: "1.5px solid $textSecondary",
-  borderRadius: "1.25rem",
-  px: 20,
-  transition: "all 200ms ease-in-out",
-  "&:hover": {
-    backgroundColor: "$textSecondary",
-    color: "White",
+const useStyles = createStyles((theme) => ({
+  header: {
+    border: process.env.NODE_ENV === "production" ? "none" : undefined,
   },
-});
+  container: {
+    padding: `${theme.spacing.md}px ${theme.spacing.xl * 2.5}px`,
+    height: "100%",
+  },
+  link: {
+    display: "block",
+    position: "relative",
+    color: theme.colors.dark[7],
+    fontWeight: 500,
+    fontSize: theme.fontSizes.md,
+    letterSpacing: "2.5%",
+    padding: `${theme.spacing.xs / 2}px ${theme.spacing.md}px`,
+    transition: "all 150ms linear",
 
-// Exports
-const NavigationMenuItem = NavigationMenuPrimitive.Item;
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      height: 2,
+      width: 0,
+      backgroundColor: "currentColor",
+      transition: "all 150ms linear",
+    },
 
-export const NavigationMenuDemo = () => {
+    "&:hover": {
+      color: theme.colors.dark[1],
+    },
+
+    "&:hover::after": {
+      width: "100%",
+    },
+  },
+  contact: {
+    color: theme.colors.dark[7],
+    fontWeight: 500,
+    borderRadius: 999,
+    borderColor: "currentColor",
+    transition: "color 150ms ease-in-out, background-color 100ms ease-in",
+
+    "&:hover": {
+      color: theme.white,
+      backgroundColor: theme.colors.dark[4],
+    },
+  },
+  avatar: {
+    outlineWidth: 3,
+    outlineStyle: "solid",
+    outlineColor: theme.colors[theme.primaryColor][6],
+    outlineOffset: 4,
+  },
+}));
+
+const MyHeader = () => {
+  const { classes } = useStyles();
+
   return (
-    <NavigationMenu>
-      <Logo />
+    <Header height={90} fixed={false} className={classes.header}>
+      <Group position="apart" align="center" className={classes.container}>
+        <Logo />
 
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/" passHref>
-            <NavigationMenuLink>Home</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/#about" passHref>
-            <NavigationMenuLink>About</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/#portfolio" passHref>
-            <NavigationMenuLink>Portfolio</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/#pricing" passHref>
-            <NavigationMenuLink>Pricing</NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-      </NavigationMenuList>
+        <Group id="links" spacing="md">
+          <Anchor
+            variant="text"
+            component={NextLink}
+            href="/"
+            className={classes.link}
+          >
+            Home
+          </Anchor>
+          <Anchor
+            variant="text"
+            component={NextLink}
+            href="/"
+            className={classes.link}
+          >
+            About
+          </Anchor>
+          <Anchor
+            variant="text"
+            component={NextLink}
+            href="/gas"
+            className={classes.link}
+          >
+            Portfolio
+          </Anchor>
+          <Anchor
+            variant="text"
+            component={NextLink}
+            href="/"
+            className={classes.link}
+          >
+            Pricing
+          </Anchor>
+        </Group>
 
-      <Link href="/contact" passHref>
-        <ContactUsLink>Contact us</ContactUsLink>
-      </Link>
-    </NavigationMenu>
+        <Group id="contact" spacing="xl">
+          <Button variant="outline" className={classes.contact}>
+            Contact me
+          </Button>
+
+          <Avatar
+            src={avatar.src}
+            size="md"
+            radius="xl"
+            className={classes.avatar}
+          />
+        </Group>
+      </Group>
+    </Header>
   );
 };
 
-export default NavigationMenuDemo;
+export default MyHeader;

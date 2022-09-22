@@ -1,7 +1,8 @@
+// import { Title } from "@radix-ui/react-dialog";
+import { Title } from "@mantine/core";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import Heading from "~/components/common/Heading";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -14,9 +15,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Heading>
+        <Title>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </Heading>
+        </Title>
 
         <p className={styles.description}>
           Get started by editing{" "}

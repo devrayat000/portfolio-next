@@ -1,18 +1,28 @@
+import { MantineProvider, ScrollArea } from "@mantine/core";
+import { AnimatePresence } from "framer-motion";
 import type { AppProps } from "next/app";
-import NavigationMenuDemo from "~/components/common/Header";
-import ScrollArea, { Box } from "~/components/common/ScrollArea";
+import Shell from "~/components/common/Shell";
 import { globalStyles } from "~/styles/stitches.config";
+import { theme } from "~/styles/theme";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   globalStyles();
 
   return (
-    <ScrollArea>
-      <NavigationMenuDemo />
-      <Box css={{ py: 15, px: 48 }}>
-        <Component {...pageProps} />
-      </Box>
-    </ScrollArea>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      withCSSVariables
+      theme={theme}
+    >
+      <ScrollArea style={{ height: "100vh" }}>
+        <Shell>
+          <AnimatePresence mode="wait">
+            <Component {...pageProps} key={router.asPath} />
+          </AnimatePresence>
+        </Shell>
+      </ScrollArea>
+    </MantineProvider>
   );
 }
 

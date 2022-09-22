@@ -1,5 +1,6 @@
 import { Head, Html, Main, NextScript } from "next/document";
 import { getCssText } from "@stitches/local";
+import { createGetInitialProps } from "@mantine/next";
 
 const MyDocument = () => {
   return (
@@ -27,5 +28,7 @@ const MyDocument = () => {
     </Html>
   );
 };
+
+MyDocument.getInitialProps = createGetInitialProps();
 
 export default MyDocument;
