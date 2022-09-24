@@ -160,8 +160,8 @@ const Hero = () => {
             Build Imaginations
           </Text>
           <Title>
-            Hi, I’m <span className={classes.zul}>Zul</span> Ikram Musaddik
-            Rayat
+            Hi, I’m <span className={classes.zul}>Zul</span> Ikram
+            <br /> Musaddik Rayat
           </Title>
           <Text
             component="p"

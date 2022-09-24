@@ -11,6 +11,7 @@ import { NextLink } from "@mantine/next";
 
 import Logo from "./Logo";
 import avatar from "~/assets/images/avatar.png";
+import MenuButton from "./MenuButton";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -141,6 +142,8 @@ const MyHeader = () => {
             className={classes.avatar}
           />
         </Group>
+
+        <MenuButton />
       </Group>
     </Header>
   );
