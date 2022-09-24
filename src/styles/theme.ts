@@ -12,11 +12,11 @@ export const theme: MantineThemeOverride = {
       h3: { fontSize: "3.25" },
       h4: { fontSize: "2.75em" },
       h5: {
-        fontSize: 32,
+        fontSize: "2em",
         fontWeight: 600,
       },
       h6: {
-        fontSize: 24,
+        fontSize: "1.5em",
         fontWeight: 500,
       },
     },
