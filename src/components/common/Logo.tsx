@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import LogoIcon from "~/assets/logo/logo.svg";
+import LogoIcon from "~/components/icon/Logo";
 
 const Logo = () => {
   return (
@@ -10,6 +10,7 @@ const Logo = () => {
           style={{ height: 48, width: "auto" }}
           aria-hidden
           focusable={false}
+          variants={undefined}
         />
       </a>
     </Link>

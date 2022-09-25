@@ -88,10 +88,10 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const MyHeader = () => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
 
   return (
-    <Header height={90} fixed={false} className={classes.header}>
+    <Header height={90} fixed={false} className={cx(classes.header, "snap")}>
       <Group position="apart" align="center" className={classes.container}>
         <Logo />
 

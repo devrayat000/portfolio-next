@@ -1,5 +1,5 @@
 import { Global, MantineProvider, ScrollArea } from "@mantine/core";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import type { AppProps } from "next/app";
 
 import Shell from "~/components/common/Shell";
@@ -16,23 +16,49 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     >
       <Global
         styles={(theme) => ({
+          ":root": {
+            "--bg": "hsl(180, 33%, 98%)",
+            "--text-primary": "hsl(197, 20%, 18%)",
+            "--text-paragraph": "hsl(201, 11%, 41%)",
+          },
           body: {
+            color: "var(--text-primary)",
+            // position: "relative",
             [theme.fn.smallerThan("sm")]: {
-              fontSize: 9,
+              fontSize: 12,
             },
             [theme.fn.smallerThan("xs")]: {
               fontSize: 7,
             },
           },
+          p: {
+            color: "var(--text-paragraph)",
+            fontSize: `calc(${theme.fontSizes.xl / 16}em + 4px)`,
+            lineHeight: "1.5em",
+          },
+          ".snap": {
+            scrollSnapAlign: "center",
+          },
         })}
       />
-      <Splash />
-      <ScrollArea id="scroll-area" style={{ height: "100vh" }}>
-        <Shell>
-          <AnimatePresence mode="wait">
-            <Component {...pageProps} key={router.asPath} />
-          </AnimatePresence>
-        </Shell>
+      {/* <Splash /> */}
+      <ScrollArea
+        id="scroll-area"
+        style={{ height: "100vh" }}
+        styles={{ viewport: { scrollSnapType: "y proximity" } }}
+      >
+        <motion.main
+          initial={["close", "hidden"]}
+          animate={["open", "animate"]}
+          whileInView={["open", "scroll"]}
+          exit={["close", "exit"]}
+        >
+          <Shell>
+            <AnimatePresence mode="wait">
+              <Component {...pageProps} key={router.asPath} />
+            </AnimatePresence>
+          </Shell>
+        </motion.main>
       </ScrollArea>
     </MantineProvider>
   );

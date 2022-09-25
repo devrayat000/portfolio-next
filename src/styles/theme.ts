@@ -9,7 +9,7 @@ export const theme: MantineThemeOverride = {
     sizes: {
       h1: { fontSize: "4.5em" },
       h2: { fontSize: "4em" },
-      h3: { fontSize: "3.25" },
+      h3: { fontSize: "3.25em" },
       h4: { fontSize: "2.75em" },
       h5: {
         fontSize: "2em",

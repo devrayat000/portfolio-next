@@ -20,12 +20,15 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const overlayBackdrop: Variants = {
-  open: {
+  open: (opacity = 0.6) => ({
+    "--opacity": opacity,
     transition: {
       duration: 0.1,
     },
-  },
-  close: {
+  }),
+  closed: {
+    // @ts-ignore
+    "--opacity": 0,
     transition: {
       duration: 0.1,
     },
@@ -33,14 +36,12 @@ const overlayBackdrop: Variants = {
 };
 
 const overlay: Variants = {
-  open: (opacity = 0.6) => ({
-    opacity: opacity,
+  open: {
     transition: {
       duration: 0.3,
     },
-  }),
+  },
   closed: {
-    opacity: 0,
     transition: {
       duration: 0.2,
     },
@@ -61,8 +62,6 @@ const Overlay = ({
   blur = 0,
 }: OverlayProps) => {
   const { classes, cx } = useStyles();
-  const op = useMotionValue(0);
-  const backdropFilter = useTransform(op, (o) => `blur(${o * blur}px)`);
 
   useHotkeys([["Escape", () => onClose?.()]]);
 
@@ -71,13 +70,13 @@ const Overlay = ({
       className={classes.overlayBackdrop}
       variants={overlayBackdrop}
       onClick={onClose}
-      style={{ backdropFilter }}
+      style={{ backdropFilter: `blur(calc(var(--opacity) * ${blur}px))` }}
+      custom={opacity}
     >
       <motion.div
         className={cx(classes.overlayBackdrop, classes.overlay)}
         variants={overlay}
-        style={{ opacity: op }}
-        custom={opacity}
+        style={{ opacity: "var(--opacity)" }}
       />
     </motion.div>
   );

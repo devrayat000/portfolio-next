@@ -4,24 +4,18 @@ import {
   SimpleGrid,
   Stack,
   Text,
-  Title,
-  Group,
   UnstyledButton,
   keyframes,
-  ActionIcon,
 } from "@mantine/core";
-import {
-  IconBrandFacebook,
-  IconBrandTwitter,
-  IconBrandInstagram,
-  IconMouse,
-  IconArrowNarrowDown,
-} from "@tabler/icons";
+import { IconMouse, IconArrowNarrowDown } from "@tabler/icons";
 import Image from "next/future/image";
 import { motion } from "framer-motion";
 
 import me from "~/assets/images/me.png";
 import HireMe from "./HireMe";
+import { MotionTitle } from "../../common/motion";
+import { fade } from "../../animations/motion";
+import SocialLinks from "./SocialLinks";
 
 const wiggleY = keyframes({
   from: {
@@ -40,34 +34,6 @@ const useStyles = createStyles((theme) => ({
   },
   zul: {
     color: theme.colors[theme.primaryColor][6],
-  },
-  socialContainer: {
-    marginTop: theme.spacing.xl * 1.5,
-    gap: theme.spacing.xl,
-    [theme.fn.smallerThan("md")]: {
-      gap: theme.spacing.xl * 2,
-      alignSelf: "stretch",
-      justifyContent: "center",
-    },
-  },
-  social: {
-    fill: "currentcolor",
-    stroke: "none",
-    transition: "all 150ms ease-in",
-  },
-  socialBtn: {
-    color: theme.colors.red[6],
-    height: theme.fontSizes.xl * 2.5,
-    width: theme.fontSizes.xl * 2.5,
-    borderWidth: 2,
-    borderColor: theme.colors.red[6],
-    borderRadius: 100,
-    transition: "all 100ms ease-in",
-
-    "&:hover": {
-      backgroundColor: theme.colors.red[6],
-      color: theme.white,
-    },
   },
   imgContainer: {
     position: "relative",
@@ -104,7 +70,7 @@ const Hero = () => {
   const { classes } = useStyles();
 
   return (
-    <Container size="xl">
+    <Container size="xl" className="snap">
       <SimpleGrid
         cols={2}
         spacing="lg"
@@ -114,40 +80,14 @@ const Hero = () => {
           <Text className={classes.tag} color="yellow" component="p">
             Build Imaginations
           </Text>
-          <Title>
+          <MotionTitle variants={fade}>
             Hi, I’m <span className={classes.zul}>Zul</span> Ikram
             <br /> Musaddik Rayat
-          </Title>
-          <Text
-            component="p"
-            color="gray"
-            sx={(theme) => ({
-              fontSize: `calc(${theme.fontSizes.xl / 16}em + 4px)`,
-            })}
-          >
-            Your first choice in Full-Stack development.
-          </Text>
+          </MotionTitle>
+          <p>Your first choice in Full-Stack development.</p>
           <HireMe />
 
-          <Group className={classes.socialContainer}>
-            <ActionIcon variant="outline" className={classes.socialBtn}>
-              <IconBrandInstagram
-                size={36}
-                className={classes.social}
-                style={{
-                  fill: "none",
-                  stroke: "currentColor",
-                  strokeWidth: 1.5,
-                }}
-              />
-            </ActionIcon>
-            <ActionIcon variant="outline" className={classes.socialBtn}>
-              <IconBrandTwitter size={36} className={classes.social} />
-            </ActionIcon>
-            <ActionIcon variant="outline" className={classes.socialBtn}>
-              <IconBrandFacebook size={36} className={classes.social} />
-            </ActionIcon>
-          </Group>
+          <SocialLinks />
 
           <Stack align="center" className={classes.scroller}>
             <IconArrowNarrowDown

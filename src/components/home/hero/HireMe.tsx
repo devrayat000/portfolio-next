@@ -7,6 +7,9 @@ import {
 } from "@mantine/core";
 import { IconCaretRight } from "@tabler/icons";
 
+import { slideUp } from "~/components/animations/motion";
+import { MotionGroup } from "~/components/common/motion";
+
 const wiggleX = keyframes({
   from: {
     translate: -5,
@@ -70,12 +73,12 @@ const HireMe = () => {
       transition="pop-top-left"
       withinPortal
     >
-      <Group>
+      <MotionGroup variants={slideUp}>
         <Menu.Target>
           <UnstyledButton className={classes.action}>Hire Me</UnstyledButton>
         </Menu.Target>
         <IconCaretRight size={32} className={classes.caret} />
-      </Group>
+      </MotionGroup>
       <Menu.Dropdown className={classes.menu}>
         <Menu.Item component="a" target="_blank" rel="noreferer">
           Fiverr

@@ -1,11 +1,14 @@
 import type { NextPage } from "next";
-import Hero from "~/components/home/Hero";
+
+import About from "~/components/home/about/About";
+import Hero from "~/components/home/hero/Hero";
 
 const Home: NextPage = () => {
   return (
-    <main>
+    <div>
       <Hero />
-    </main>
+      <About />
+    </div>
   );
 };
 
