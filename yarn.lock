@@ -6545,6 +6545,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-config-mantine@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "eslint-config-mantine@npm:2.0.0"
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": ^5.30.0
+    "@typescript-eslint/parser": ^5.30.0
+    eslint: ^8.18.0
+    eslint-config-airbnb: 19.0.4
+    eslint-config-airbnb-typescript: ^17.0.0
+    eslint-plugin-import: ^2.26.0
+    eslint-plugin-jsx-a11y: ^6.6.0
+    eslint-plugin-react: ^7.30.1
+    eslint-plugin-react-hooks: ^4.6.0
+  checksum: 2b4dd594fd6422fb6d1e04dc5b72bf83dbb0ae43cabd2849678a68268eb0003fffcd7cfbc14ca0b5ebbd312510bbc836ed6d4b6297bf7e04d5fa73543d230695
+  languageName: node
+  linkType: hard
+
 "eslint-config-next@npm:12.3.1":
   version: 12.3.1
   resolution: "eslint-config-next@npm:12.3.1"
@@ -10541,6 +10558,7 @@ __metadata:
     "@types/react": 18.0.20
     "@types/react-dom": 18.0.6
     eslint: 8.23.1
+    eslint-config-mantine: ^2.0.0
     eslint-config-next: 12.3.1
     framer-motion: ^7.3.6
     next: 12.3.1

@@ -1,13 +1,12 @@
 import { Global, MantineProvider, ScrollArea } from "@mantine/core";
 import { AnimatePresence } from "framer-motion";
 import type { AppProps } from "next/app";
+
 import Shell from "~/components/common/Shell";
-import { globalStyles } from "~/styles/stitches.config";
+import Splash from "~/components/common/Splash";
 import { theme } from "~/styles/theme";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  globalStyles();
-
   return (
     <MantineProvider
       withGlobalStyles
@@ -27,7 +26,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           },
         })}
       />
-      <ScrollArea style={{ height: "100vh" }}>
+      <Splash />
+      <ScrollArea id="scroll-area" style={{ height: "100vh" }}>
         <Shell>
           <AnimatePresence mode="wait">
             <Component {...pageProps} key={router.asPath} />

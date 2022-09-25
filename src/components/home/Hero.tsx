@@ -1,5 +1,4 @@
 import {
-  Button,
   Container,
   createStyles,
   SimpleGrid,
@@ -26,19 +25,19 @@ import me from "~/assets/images/me.png";
 
 const wiggleX = keyframes({
   from: {
-    translate: 0,
+    translate: -5,
   },
   to: {
-    translate: 10,
+    translate: 5,
   },
 });
 
 const wiggleY = keyframes({
   from: {
-    transform: "translateY(0)",
+    translate: `0px 0px`,
   },
   to: {
-    transform: "translateY(-10)",
+    translate: "0px -10px",
   },
 });
 
@@ -73,7 +72,7 @@ const useStyles = createStyles((theme, _, ref) => {
         ),
       },
 
-      [`&:hover + ${caretRef}`]: {
+      [`&:hover + .${caretRef}`]: {
         animation: `${wiggleX} 250ms ease-in-out infinite alternate`,
         fill: theme.fn.rgba(theme.colors[theme.primaryColor][6], 0.85),
       },
@@ -235,12 +234,15 @@ const Hero = () => {
                   opacity: 0,
                 },
                 on: {
-                  scale: 1,
-                  opacity: 1,
+                  scale: [1, 0.7],
+                  opacity: [1, 0.8],
                   transition: {
                     duration: 0.8,
                     delay: 0.7,
                     ease: "easeOut",
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    repeatDelay: 0.1,
                   },
                 },
               }}
@@ -254,12 +256,15 @@ const Hero = () => {
                   opacity: 0,
                 },
                 on: {
-                  x: 0,
-                  opacity: 1,
+                  x: [0, 25],
+                  opacity: [1, 0.7],
                   transition: {
                     duration: 1,
                     delay: 0.3,
                     ease: "easeOut",
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    repeatDelay: 0.1,
                   },
                 },
               }}
