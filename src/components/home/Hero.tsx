@@ -11,7 +11,6 @@ import {
   ActionIcon,
 } from "@mantine/core";
 import {
-  IconCaretRight,
   IconBrandFacebook,
   IconBrandTwitter,
   IconBrandInstagram,
@@ -22,15 +21,7 @@ import Image from "next/future/image";
 import { motion } from "framer-motion";
 
 import me from "~/assets/images/me.png";
-
-const wiggleX = keyframes({
-  from: {
-    translate: -5,
-  },
-  to: {
-    translate: 5,
-  },
-});
+import HireMe from "./HireMe";
 
 const wiggleY = keyframes({
   from: {
@@ -41,108 +32,73 @@ const wiggleY = keyframes({
   },
 });
 
-const useStyles = createStyles((theme, _, ref) => {
-  const caretRef = ref("caret");
+const useStyles = createStyles((theme) => ({
+  tag: {
+    textTransform: "uppercase",
+    fontSize: `calc(${theme.fontSizes.xl / 16}em + 4px)`,
+    letterSpacing: "10%",
+  },
+  zul: {
+    color: theme.colors[theme.primaryColor][6],
+  },
+  socialContainer: {
+    marginTop: theme.spacing.xl * 1.5,
+    gap: theme.spacing.xl,
+    [theme.fn.smallerThan("md")]: {
+      gap: theme.spacing.xl * 2,
+      alignSelf: "stretch",
+      justifyContent: "center",
+    },
+  },
+  social: {
+    fill: "currentcolor",
+    stroke: "none",
+    transition: "all 150ms ease-in",
+  },
+  socialBtn: {
+    color: theme.colors.red[6],
+    height: theme.fontSizes.xl * 2.5,
+    width: theme.fontSizes.xl * 2.5,
+    borderWidth: 2,
+    borderColor: theme.colors.red[6],
+    borderRadius: 100,
+    transition: "all 100ms ease-in",
 
-  return {
-    tag: {
-      textTransform: "uppercase",
-      fontSize: `calc(${theme.fontSizes.xl / 16}em + 4px)`,
-      letterSpacing: "10%",
-    },
-    zul: {
-      color: theme.colors[theme.primaryColor][6],
-    },
-    action: {
-      borderRadius: 999,
-      textTransform: "uppercase",
-      fontSize: theme.fontSizes.md,
-      fontWeight: 500,
-      fontFamily: "'Montserrat', sans-serif",
-      letterSpacing: "2.5%",
-      padding: "16px 52px",
+    "&:hover": {
+      backgroundColor: theme.colors.red[6],
       color: theme.white,
-      backgroundColor: theme.colors[theme.primaryColor][6],
-      transition: "background-color 150ms linear",
-
-      "&:hover": {
-        backgroundColor: theme.fn.rgba(
-          theme.colors[theme.primaryColor][6],
-          0.85
-        ),
-      },
-
-      [`&:hover + .${caretRef}`]: {
-        animation: `${wiggleX} 250ms ease-in-out infinite alternate`,
-        fill: theme.fn.rgba(theme.colors[theme.primaryColor][6], 0.85),
-      },
     },
-    caret: {
-      ref: caretRef,
-      color: theme.colors[theme.primaryColor][6],
-      fill: "currentcolor",
-      stroke: "none",
-      transition: "all 150ms linear",
+  },
+  imgContainer: {
+    position: "relative",
+    aspectRatio: "3 / 4",
+    [theme.fn.smallerThan("md")]: {
+      width: "60vw",
+      placeSelf: "center",
     },
-    socialContainer: {
-      marginTop: theme.spacing.xl * 1.5,
-      gap: theme.spacing.xl,
-      [theme.fn.smallerThan("md")]: {
-        gap: theme.spacing.xl * 2,
-        alignSelf: "stretch",
-        justifyContent: "center",
-      },
+    [theme.fn.smallerThan("sm")]: {
+      width: "80vw",
+      placeSelf: "center",
     },
-    social: {
-      fill: "currentcolor",
-      stroke: "none",
-      transition: "all 150ms ease-in",
+  },
+  shapes: {
+    position: "absolute",
+    inset: 0,
+    zIndex: -1,
+    "&:not(:root)": {
+      overflow: "visible",
     },
-    socialBtn: {
-      color: theme.colors.red[6],
-      height: theme.fontSizes.xl * 2.5,
-      width: theme.fontSizes.xl * 2.5,
-      borderWidth: 2,
-      borderColor: theme.colors.red[6],
-      borderRadius: 100,
-      transition: "all 100ms ease-in",
-
-      "&:hover": {
-        backgroundColor: theme.colors.red[6],
-        color: theme.white,
-      },
+  },
+  wiggle: {
+    animation: `${wiggleY} 250ms ease-in-out infinite alternate`,
+  },
+  scroller: {
+    marginTop: theme.spacing.xl * 1.5,
+    [theme.fn.smallerThan("md")]: {
+      display: "none",
     },
-    imgContainer: {
-      position: "relative",
-      aspectRatio: "3 / 4",
-      [theme.fn.smallerThan("md")]: {
-        width: "60vw",
-        placeSelf: "center",
-      },
-      [theme.fn.smallerThan("sm")]: {
-        width: "80vw",
-        placeSelf: "center",
-      },
-    },
-    shapes: {
-      position: "absolute",
-      inset: 0,
-      zIndex: -1,
-      "&:not(:root)": {
-        overflow: "visible",
-      },
-    },
-    wiggle: {
-      animation: `${wiggleY} 250ms ease-in-out infinite alternate`,
-    },
-    scroller: {
-      marginTop: theme.spacing.xl * 1.5,
-      [theme.fn.smallerThan("md")]: {
-        display: "none",
-      },
-    },
-  };
-});
+  },
+}));
 
 const Hero = () => {
   const { classes } = useStyles();
@@ -171,10 +127,7 @@ const Hero = () => {
           >
             Your first choice in Full-Stack development.
           </Text>
-          <Group>
-            <UnstyledButton className={classes.action}>Hire Me</UnstyledButton>
-            <IconCaretRight size={32} className={classes.caret} />
-          </Group>
+          <HireMe />
 
           <Group className={classes.socialContainer}>
             <ActionIcon variant="outline" className={classes.socialBtn}>
