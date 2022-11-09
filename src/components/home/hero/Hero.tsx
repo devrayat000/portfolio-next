@@ -8,14 +8,15 @@ import {
   keyframes,
 } from "@mantine/core";
 import { IconMouse, IconArrowNarrowDown } from "@tabler/icons";
-import Image from "next/future/image";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 import me from "~/assets/images/me.png";
-import HireMe from "./HireMe";
+// import HireMe from "./HireMe";
 import { MotionTitle } from "../../common/motion";
 import { fade } from "../../animations/motion";
 import SocialLinks from "./SocialLinks";
+import { useBaseStyles } from "~/styles/base.style";
 
 const wiggleY = keyframes({
   from: {
@@ -67,10 +68,14 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const Hero = () => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
+  const { classes: baseClasses } = useBaseStyles();
 
   return (
-    <Container size="xl" className="snap">
+    <Container
+      size="xl"
+      className={cx(baseClasses.snap, baseClasses.container)}
+    >
       <SimpleGrid
         cols={2}
         spacing="lg"
@@ -84,8 +89,10 @@ const Hero = () => {
             Hi, I’m <span className={classes.zul}>Zul</span> Ikram
             <br /> Musaddik Rayat
           </MotionTitle>
-          <p>Your first choice in Full-Stack development.</p>
-          <HireMe />
+          <Text component="p" my={0} className={baseClasses.p}>
+            Your first choice in Full-Stack development.
+          </Text>
+          {/* <HireMe /> */}
 
           <SocialLinks />
 

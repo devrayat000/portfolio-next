@@ -1,3 +1,4 @@
+import { useMantineTheme } from "@mantine/core";
 import { motion, type Variants, type SVGMotionProps } from "framer-motion";
 
 const shrink: Variants = {
@@ -34,8 +35,11 @@ const draw: Variants = {
 };
 
 const Logo = (props: SVGMotionProps<HTMLOrSVGElement>) => {
+  const theme = useMantineTheme();
+
   return (
     <motion.svg
+      key={theme.colorScheme}
       width="auto"
       height="48"
       viewBox="0 0 245 257"
@@ -46,15 +50,15 @@ const Logo = (props: SVGMotionProps<HTMLOrSVGElement>) => {
     >
       <motion.path
         d="M49 0L0 48L152 43.5L9 204L70 215L245 4L49 0Z"
-        fill="black"
-        stroke="black"
+        fill={theme.colorScheme === "light" ? "black" : "white"}
+        stroke={theme.colorScheme === "light" ? "black" : "white"}
         strokeWidth={3}
         variants={draw}
       />
       <motion.path
         d="M245 254L0 209L4 257L245 254Z"
-        fill="#0078E7"
-        stroke="#0078E7"
+        fill={theme.colors[theme.primaryColor][6]}
+        stroke={theme.colors[theme.primaryColor][6]}
         strokeWidth={3}
         variants={draw}
       />

@@ -1,6 +1,6 @@
 import { Head, Html, Main, NextScript } from "next/document";
-import { getCssText } from "@stitches/local";
 import { createGetInitialProps } from "@mantine/next";
+import { emotionCache } from "~/styles/theme";
 
 const MyDocument = () => {
   return (
@@ -16,10 +16,6 @@ const MyDocument = () => {
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Poppins:wght@400;600;700&display=swap"
           rel="stylesheet"
         />
-        {/* <style
-          id="stitches"
-          dangerouslySetInnerHTML={{ __html: getCssText() }}
-        /> */}
       </Head>
       <body>
         <Main />
@@ -29,6 +25,6 @@ const MyDocument = () => {
   );
 };
 
-MyDocument.getInitialProps = createGetInitialProps();
+MyDocument.getInitialProps = createGetInitialProps(emotionCache);
 
 export default MyDocument;

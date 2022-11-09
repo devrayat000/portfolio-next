@@ -1,10 +1,11 @@
 import { Global, MantineProvider, ScrollArea } from "@mantine/core";
-import { AnimatePresence, motion, MotionConfig } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import type { AppProps } from "next/app";
+import { SWRConfig } from "swr";
 
 import Shell from "~/components/common/Shell";
-import Splash from "~/components/common/Splash";
-import { theme } from "~/styles/theme";
+import { emotionCache, theme } from "~/styles/theme";
+import fetcher from "~/utils/fetcher";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
@@ -13,6 +14,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       withNormalizeCSS
       withCSSVariables
       theme={theme}
+      emotionCache={emotionCache}
     >
       <Global
         styles={(theme) => ({
@@ -20,6 +22,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
             "--bg": "hsl(180, 33%, 98%)",
             "--text-primary": "hsl(197, 20%, 18%)",
             "--text-paragraph": "hsl(201, 11%, 41%)",
+            "--text-body-1": "hsl(200, 21.7%, 68.43%)",
           },
           body: {
             color: "var(--text-primary)",
@@ -30,14 +33,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
             [theme.fn.smallerThan("xs")]: {
               fontSize: 7,
             },
-          },
-          p: {
-            color: "var(--text-paragraph)",
-            fontSize: `calc(${theme.fontSizes.xl / 16}em + 4px)`,
-            lineHeight: "1.5em",
-          },
-          ".snap": {
-            scrollSnapAlign: "center",
           },
         })}
       />
@@ -53,11 +48,19 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           whileInView={["open", "scroll"]}
           exit={["close", "exit"]}
         >
-          <Shell>
-            <AnimatePresence mode="wait">
-              <Component {...pageProps} key={router.asPath} />
-            </AnimatePresence>
-          </Shell>
+          <SWRConfig
+            value={{
+              fetcher,
+              errorRetryCount: Infinity,
+              fallback: pageProps.ssr,
+            }}
+          >
+            <Shell>
+              <AnimatePresence mode="wait">
+                <Component {...pageProps} key={router.asPath} />
+              </AnimatePresence>
+            </Shell>
+          </SWRConfig>
         </motion.main>
       </ScrollArea>
     </MantineProvider>

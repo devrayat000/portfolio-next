@@ -1,11 +1,6 @@
 import { createStyles } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  type Variants,
-} from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { createPortal } from "react-dom";
 
 const useStyles = createStyles((theme) => ({

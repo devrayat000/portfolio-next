@@ -1,8 +1,23 @@
 import { type MantineThemeOverride } from "@mantine/styles";
+import { createEmotionCache } from "@mantine/core";
 
 export const theme: MantineThemeOverride = {
   colorScheme: "light",
-  primaryColor: "blue",
+  primaryColor: "prussian",
+  colors: {
+    prussian: [
+      "#cce6ff",
+      "#b3daff",
+      "#99ceff",
+      "#80c1ff",
+      "#4da9ff",
+      "#1a90ff",
+      "#0077e6",
+      "#005cb3",
+      "#004280",
+      "#00284d",
+    ],
+  },
   headings: {
     fontFamily: "'Poppins', sans-serif",
     fontWeight: 700,
@@ -26,3 +41,5 @@ export const theme: MantineThemeOverride = {
   },
   fontFamily: "'Poppins', sans-serif",
 };
+
+export const emotionCache = createEmotionCache({ key: "devrayat" });

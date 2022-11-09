@@ -6,8 +6,7 @@ import {
   Group,
   Header,
 } from "@mantine/core";
-import { NextLink } from "@mantine/next";
-// import Image from "next/future/image";
+import NextLink from "next/link";
 
 import Logo from "./Logo";
 import avatar from "~/assets/images/avatar.png";
