@@ -20,6 +20,6 @@
       "@stitches/local": ["styles/stitches.config"]
     }
   },
-  "include": ["next-env.d.ts", "next-svgr.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "src/types/next-svgr.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

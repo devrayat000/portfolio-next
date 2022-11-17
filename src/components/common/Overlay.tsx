@@ -1,6 +1,6 @@
 import { createStyles } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
-import { motion, type Variants } from "framer-motion";
+import { m, type Variants } from "framer-motion";
 import { createPortal } from "react-dom";
 
 const useStyles = createStyles((theme) => ({
@@ -61,19 +61,19 @@ const Overlay = ({
   useHotkeys([["Escape", () => onClose?.()]]);
 
   const ov = (
-    <motion.div
+    <m.div
       className={classes.overlayBackdrop}
       variants={overlayBackdrop}
       onClick={onClose}
       style={{ backdropFilter: `blur(calc(var(--opacity) * ${blur}px))` }}
       custom={opacity}
     >
-      <motion.div
+      <m.div
         className={cx(classes.overlayBackdrop, classes.overlay)}
         variants={overlay}
         style={{ opacity: "var(--opacity)" }}
       />
-    </motion.div>
+    </m.div>
   );
 
   return withinPortal ? createPortal(ov, document.body) : ov;

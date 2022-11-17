@@ -1,0 +1,105 @@
+{
+    "data": {
+        "projects": [
+            {
+                "id": "cl8lvgd5e25i30do53kdxlmo4",
+                "createdAt": "2022-09-28T16:58:46.024115+00:00",
+                "preview": "https://prodamart.netlify.app",
+                "sourceCode": "https://github.com/devrayat000/productz",
+                "slug": "sneakers",
+                "title": "Sneakers",
+                "image": {
+                    "url": "https://media.graphassets.com/output=format:webp/Td6f8l7ZSDK8M3sCFmun"
+                }
+            },
+            {
+                "id": "cl8lvnii325tp0bpn1c71zs2i",
+                "createdAt": "2022-09-28T17:04:19.560014+00:00",
+                "preview": "https://amar-vasha.vercel.app",
+                "sourceCode": "https://github.com/devrayat000/amar-vasha",
+                "slug": "amar-vasha",
+                "title": "Amar Vasha",
+                "image": {
+                    "url": "https://media.graphassets.com/output=format:webp/bpHQObRgR1mmYTCakNE7"
+                }
+            },
+            {
+                "id": "cl8lw121725x80do5re2w1hqu",
+                "createdAt": "2022-09-28T17:14:51.393729+00:00",
+                "preview": "https://morty-n-rick.netlify.app",
+                "sourceCode": "https://github.com/devrayat000/rick-n-morty",
+                "slug": "rick-n-morty",
+                "title": "Rick n Morty",
+                "image": {
+                    "url": "https://media.graphassets.com/output=format:webp/mrTEh8oR06dgyIexU6wO"
+                }
+            },
+            {
+                "id": "cl8sn6d6n44rz0bpkqe6ot10u",
+                "createdAt": "2022-10-03T10:41:25.813853+00:00",
+                "preview": "https://every-country.netlify.app",
+                "sourceCode": "https://github.com/devrayat000/rest-countries",
+                "slug": "where-in-the-world",
+                "title": "Where In The World?",
+                "image": {
+                    "url": "https://media.graphassets.com/output=format:webp/9CqvattQgOF3fEMk9Iq2"
+                }
+            },
+            {
+                "id": "cl8so21xz45hq0dpkt6z151to",
+                "createdAt": "2022-10-03T11:06:04.225347+00:00",
+                "preview": "https://trimly.netlify.app",
+                "sourceCode": "https://github.com/devrayat000/short-ly/tree/svelte",
+                "slug": "shortly-url-shortener",
+                "title": "Shortly - URL Shortener",
+                "image": {
+                    "url": "https://media.graphassets.com/output=format:webp/kJMXgEIjRz66ZRSmuPbG"
+                }
+            },
+            {
+                "id": "cl8so8twg45nx0dpk4klde2ou",
+                "createdAt": "2022-10-03T11:11:20.38763+00:00",
+                "preview": "https://cookingit.netlify.app",
+                "sourceCode": "https://github.com/devrayat000/cookit-mealdb",
+                "slug": "cookit-mealdb-recipe-app",
+                "title": "COOKit - MealDB Recipe App",
+                "image": {
+                    "url": "https://media.graphassets.com/output=format:webp/MTudDbrOSNCcXCP7RyFS"
+                }
+            },
+            {
+                "id": "cl8yt4zkx07cv0aod7heii3gz",
+                "createdAt": "2022-10-07T18:14:56.28702+00:00",
+                "preview": "https://ipbuzz.netlify.app",
+                "sourceCode": "https://github.com/devrayat000/ip-tracker",
+                "slug": "ipbuzz-or-ip-tracker",
+                "title": "IpBuzz | IP Tracker",
+                "image": {
+                    "url": "https://media.graphassets.com/output=format:webp/6P1IlSrISuO1kcpRedFx"
+                }
+            },
+            {
+                "id": "cl8yt88q40zb80boc5bn7faqc",
+                "createdAt": "2022-10-07T18:17:28.081061+00:00",
+                "preview": "https://price-ranger.netlify.app",
+                "sourceCode": "https://github.com/devrayat000/ranger",
+                "slug": "price-ranger",
+                "title": "Price Ranger",
+                "image": {
+                    "url": "https://media.graphassets.com/output=format:webp/rBmstelTbeoEJ0d1IeKF"
+                }
+            },
+            {
+                "id": "cl8ythieh07vb0aod7ortse1y",
+                "createdAt": "2022-10-07T18:24:40.552415+00:00",
+                "preview": "https://payon.netlify.app",
+                "sourceCode": "https://github.com/devrayat000/payon",
+                "slug": "payon-or-payment-gateway",
+                "title": "PayOn | Payment Gateway",
+                "image": {
+                    "url": "https://media.graphassets.com/output=format:webp/hjB50cYqRkyhT5NxcVTG"
+                }
+            }
+        ]
+    }
+}

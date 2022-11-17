@@ -1,6 +1,4 @@
-import { ClassNames } from "@emotion/react";
 import {
-  Box,
   Container,
   createStyles,
   SimpleGrid,
@@ -10,7 +8,7 @@ import {
   Title,
 } from "@mantine/core";
 import { IconCheck } from "@tabler/icons";
-import {} from "react";
+
 import { fade } from "~/components/animations/motion";
 import { MotionTitle } from "~/components/common/motion";
 import { useBaseStyles } from "~/styles/base.style";
@@ -40,6 +38,8 @@ const useStyles = createStyles((theme) => ({
     fontSize: 32,
     width: "1em",
     height: "1em",
+    borderRadius: "1em",
+    left: "calc(-0.5em - 2px)",
     [theme.fn.smallerThan("sm")]: {
       fontSize: 22,
     },

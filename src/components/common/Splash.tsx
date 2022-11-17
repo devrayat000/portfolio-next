@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 // import { createPortal } from "react-dom";
 import useSplash from "~/hooks/use-splash";
 import Logo from "../icon/Logo";
@@ -8,7 +8,7 @@ const Splash = () => {
   return (
     <AnimatePresence>
       {isSplashed && (
-        <motion.div
+        <m.div
           style={{
             position: "fixed",
             inset: 0,
@@ -40,7 +40,7 @@ const Splash = () => {
           }}
         >
           <Logo height={240} />
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

@@ -4,7 +4,7 @@ import {
   IconBrandTwitter,
   IconBrandInstagram,
 } from "@tabler/icons";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 import { reverse, slideRight } from "~/components/animations/motion";
 import { MotionGroup } from "~/components/common/motion";
@@ -78,7 +78,7 @@ const SocialLinks = () => {
           variant="outline"
           className={classes.socialBtn}
           href={socialLink.href}
-          component={motion.a}
+          component={m.a}
           variants={slideRight}
           custom={{ x: -70 * i }}
         >

@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom";
-import { motion, type Variants } from "framer-motion";
+import { m, type Variants } from "framer-motion";
 import { createStyles } from "@mantine/core";
 import { useWindowEvent } from "@mantine/hooks";
 
@@ -58,7 +58,7 @@ const MyDrawer = ({ onClose }: MyDrawerProps) => {
   });
 
   return createPortal(
-    <motion.nav
+    <m.nav
       id="drawer"
       initial="closed"
       animate="open"
@@ -66,10 +66,10 @@ const MyDrawer = ({ onClose }: MyDrawerProps) => {
       className={classes.nav}
       role="dialog"
     >
-      <motion.div className={classes.bg} variants={sidebar}>
+      <m.div className={classes.bg} variants={sidebar}>
         <Overlay onClose={onClose} blur={5} withinPortal />
-      </motion.div>
-    </motion.nav>,
+      </m.div>
+    </m.nav>,
     document.body
   );
 };
